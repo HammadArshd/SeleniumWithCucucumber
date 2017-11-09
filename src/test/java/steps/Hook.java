@@ -4,6 +4,7 @@ import Base.BaseUtil;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -29,7 +30,9 @@ public class Hook extends BaseUtil{
 
 
         //Chrome driver
-        System.setProperty("webdriver.chrome.driver", "C:\\Libs\\chromedriver.exe");
+        /*System.setProperty("webdriver.chrome.driver", "C:\\Libs\\chromedriver.exe");
+        base.Driver = new ChromeDriver();*/
+        ChromeDriverManager.getInstance().setup();
         base.Driver = new ChromeDriver();
     }
 
@@ -41,6 +44,7 @@ public class Hook extends BaseUtil{
             System.out.println(scenario.getName());
         }
         System.out.println("Closing the browser : MOCK");
+        base.Driver.quit();
     }
 
 }
