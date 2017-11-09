@@ -40,7 +40,7 @@ public class Hook extends BaseUtil{
         base.Driver = new ChromeDriver();*/
 //        ChromeDriverManager.getInstance().setup();
 //        base.Driver = new ChromeDriver();
-        String node = "http://192.168.50.70:5566/wd/hub";
+        String node = "http://172.17.0.3:4444/wd/hub";
         DesiredCapabilities cap = DesiredCapabilities.firefox();
         cap.setBrowserName("firefox");
         base.Driver = new RemoteWebDriver(new URL(node), cap);
